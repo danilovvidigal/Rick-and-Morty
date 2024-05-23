@@ -1,0 +1,8 @@
+<header class="bg-blue-500 p-4 flex items-center justify-between">
+  <h1 class="text-white text-2xl">Rick & Morty Personagens</h1>
+  <span>Favoritos: </span>
+  <span>{{ favoritesCount$ | async }}</span>
+  <app-search-characters (searchResults)="onSearchResults($event)"></app-search-characters>
+  <div class="text-white">
+  </div>
+</header>

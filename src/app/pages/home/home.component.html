@@ -1,0 +1,22 @@
+<app-header (searchResults)="onSearchResults($event)"></app-header>
+
+<div class="relative min-h-screen">
+  <img src="../../../assets/img/f6e96e7bcf7aee8f5619f215dc02f3f5.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover z-0">
+
+  <div class="relative z-10 p-4">
+    <div class="grid p-2">
+      <button *ngIf="(searchCompleted$ | async)" (click)="goToFavorites()" class="bg-green-500 text-white py-2 px-4 rounded mt-4">Ver favoritos</button>
+    </div>
+
+    <div *ngIf="searchCompleted$ | async" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div *ngFor="let character of characters$ | async" class="bg-white rounded-lg shadow p-4">
+        <img [src]="character.image" [alt]="character.name" class="w-full h-auto rounded mb-4">
+        <h2 class="text-xl font-bold">{{ character.name }}</h2>
+        <p>Status: {{ character.status }}</p>
+        <p>Species: {{ character.species }}</p>
+        <p>Gender: {{ character.gender }}</p>
+        <button (click)="addToFavorites(character)" class="bg-blue-500 text-white py-2 px-4 rounded mt-4">Adicionar a favoritos</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="w-full flex justify-between items-center p-4 bg-blue-500">
+  <h1 class="text-3xl font-bold mb-0">Favoritos: {{ favoritesCount$ | async }}</h1>
+  <button (click)="goBack()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded shadow">Voltar</button>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+  <div *ngFor="let character of favorites$ | async" class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <img [src]="character.image" [alt]="character.name" class="w-full h-48 object-cover rounded-t-lg">
+    <div class="p-4">
+      <h2 class="text-2xl font-bold mb-2">{{ character.name }}</h2>
+      <p class="text-gray-600">Status: {{ character.status }}</p>
+      <p class="text-gray-600">Species: {{ character.species }}</p>
+      <p class="text-gray-600">Gender: {{ character.gender }}</p>
+      <button (click)="removeFavorite(character)" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mt-4 w-full">Remover dos favoritos</button>
+    </div>
+  </div>
+</div>
