@@ -30,7 +30,7 @@ export class SearchCharactersComponent implements OnDestroy {
       distinctUntilChanged(),
       switchMap((term) => this.characterService.searchCharacters(term).pipe(
         catchError(() => {
-          this.toastr.error('Nem um personagem encontrado!', 'Erro', {
+          this.toastr.error('Nenhum personagem encontrado!', 'Erro', {
             toastClass: 'toast toast-error',
           });
           return of({ results: [] } as unknown as CharacterResponse);

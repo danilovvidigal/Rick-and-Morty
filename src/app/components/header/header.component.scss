@@ -1,0 +1,44 @@
+.header-container {
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #3D3D3D;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-button {
+  display: flex;
+}
+
+.toggle-button button {
+  border: 2px solid #232323; 
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 12px;
+}
+
+.toggle-button button:hover {
+  filter: brightness(90%);
+}
+
+.toggle-button button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.toggle-button button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.toggle-button .fa {
+  margin-right: 8px;
+}
+
+.rick-and-morty-title {
+  font-family: 'Creepster', cursive;
+  color: #00b5cc;
+  text-shadow: 2px 2px 0px #b2df28, 4px 4px 0px #000000;
+  font-size: 2.5rem;
+}

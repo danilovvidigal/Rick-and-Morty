@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 import { Character } from 'src/app/core/models/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
 
@@ -12,29 +13,27 @@ import { CharacterService } from 'src/app/core/service/character.service';
   standalone: true,
   imports: [
     CommonModule,
+    HeaderComponent,
     RouterModule,
   ],
 })
 export class FavoriteComponent {
 
   favorites$: Observable<Character[]>;
-  favoritesCount$: Observable<number>;
 
   constructor (
     private characterService: CharacterService,
     private router: Router
   ) {
     this.favorites$ = this.characterService.favorites$;
-    this.favoritesCount$ = this.favorites$.pipe(
-      map((favorites: string | any[]) => favorites.length)
-    );
   }
 
-  goBack(): void {
+  goToHome(): void {
     this.router.navigate(['/']);
   }
 
   removeFavorite(character: Character): void {
     this.characterService.removeFavorite(character);
   }
+
 }

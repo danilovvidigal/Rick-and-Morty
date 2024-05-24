@@ -1,9 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
-import { Character } from 'src/app/core/models/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
-import { SearchCharactersComponent } from '../search-characters/search-characters.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -11,22 +10,25 @@ import { SearchCharactersComponent } from '../search-characters/search-character
   styleUrls: ['./header.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    SearchCharactersComponent
+    CommonModule
   ],
 })
 export class HeaderComponent {
-
-  @Output() searchResults = new EventEmitter<Character[]>();
   favoritesCount$: Observable<number>;
+  currentPage: string;
 
-  constructor(private characterService: CharacterService) {
+  constructor(private characterService: CharacterService, private router: Router) {
     this.favoritesCount$ = this.characterService.favorites$.pipe(
-      map((favorites: Character[]) => favorites.length)
+      map(favorites => favorites.length)
     );
+    this.router.events.subscribe(() => {
+      this.currentPage = this.router.url;
+    });
+    this.currentPage = this.router.url;
   }
 
-  onSearchResults(characters: Character[]): void {
-    this.searchResults.emit(characters);
+  navigateTo(page: string): void {
+    this.currentPage = page;
+    this.router.navigate([page]);
   }
 }

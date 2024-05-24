@@ -1,0 +1,112 @@
+.rick-and-morty-title {
+  font-family: 'Creepster', cursive;
+  color: #00b5cc;
+  text-shadow: 2px 2px 0px #b2df28, 4px 4px 0px #000000;
+  font-size: 3.5rem;
+}
+
+.search-box {
+  width: 22rem;
+}
+
+.flex {
+  align-items: center;
+  padding: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button .fas {
+  font-size: 1.5rem;
+  color: #000;
+  border: 2px solid #fafafa;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+img {
+  border-radius: 0.5rem 0.5rem 0 0;
+  object-fit: cover;
+}
+
+.bg-custom-dark {
+  background-color: #1f1f1f;
+}
+
+.card-container {
+  background-color: #0a0a0a;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-custom-gray {
+  color: #a4a4a4;
+}
+
+button:hover .fas {
+  color: #0a0a0a;
+}
+
+button.active .fas {
+  color: #0a0a0a;
+  background-color: #fafafa;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #0a0a0a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+button.active::before {
+  background-color: #fafafa;
+}
+
+.border-custom-border {
+  border-color: #3D3D3D;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #3D3D3D;
+  width: 375px;
+  background-color: #1f1f1f;
+  color: #a4a4a4;
+}
+
+.search-input::placeholder {
+  color: #a4a4a4;
+}

@@ -1,17 +1,32 @@
-<div class="w-full flex justify-between items-center p-4 bg-blue-500">
-  <h1 class="text-3xl font-bold mb-0">Favoritos: {{ favoritesCount$ | async }}</h1>
-  <button (click)="goBack()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded shadow">Voltar</button>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-  <div *ngFor="let character of favorites$ | async" class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <img [src]="character.image" [alt]="character.name" class="w-full h-48 object-cover rounded-t-lg">
-    <div class="p-4">
-      <h2 class="text-2xl font-bold mb-2">{{ character.name }}</h2>
-      <p class="text-gray-600">Status: {{ character.status }}</p>
-      <p class="text-gray-600">Species: {{ character.species }}</p>
-      <p class="text-gray-600">Gender: {{ character.gender }}</p>
-      <button (click)="removeFavorite(character)" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mt-4 w-full">Remover dos favoritos</button>
+<app-header></app-header>
+<div class="relative min-h-screen bg-[#1f1f1f] items-center flex ">
+  <ng-container *ngIf="(favorites$ | async) as favorites; else noFavorites">
+    <div *ngIf="favorites.length > 0; else noFavorites">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+        <div *ngFor="let character of favorites" class="bg-[#0a0a0a] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <img [src]="character.image" [alt]="character.name" class="w-full h-48 object-cover rounded-t-lg">
+          <div class="p-4">
+            <h2 class="text-2xl font-bold text-white mb-2">{{ character.name }}</h2>
+            <p class="text-[#a4a4a4]">Status: {{ character.status }}</p>
+            <p class="text-[#a4a4a4]">Species: {{ character.species }}</p>
+            <p class="text-[#a4a4a4]">Gender: {{ character.gender }}</p>
+            <button (click)="removeFavorite(character)" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mt-4 w-full">Remover dos favoritos</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #noFavorites>
+    <div class="tamplete">
+
+    <div class="template-titulo">
+      <h1 class="rick-and-morty-title">Favoritos</h1>
+    </div>        >
+    <div class="flex flex-col items-center justify-center h-full text-center text-white bg-[#0a0a0a] p-6 rounded-lg mx-auto max-w-md">
+      <p class="text-2xl mb-4">Parece que você ainda não tem favoritos</p>
+      <p class="text-lg mb-6">Volte à página inicial e escolha os melhores para você.</p>
+      <button (click)="goToHome()" class="bg-[#d3d4d5] hover:bg-gray-300 text-[#0a0a0a] py-2 px-4 rounded go-back">Voltar ao Início</button>
+    </div>
+    </div> 
+  </ng-template>
 </div>

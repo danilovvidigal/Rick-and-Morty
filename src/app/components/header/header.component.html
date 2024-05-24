@@ -1,8 +1,19 @@
-<header class="bg-blue-500 p-4 flex items-center justify-between">
-  <h1 class="text-white text-2xl">Rick & Morty Personagens</h1>
-  <span>Favoritos: </span>
-  <span>{{ favoritesCount$ | async }}</span>
-  <app-search-characters (searchResults)="onSearchResults($event)"></app-search-characters>
-  <div class="text-white">
+<header class="header-container">
+  <h1 class="rick-and-morty-title text-white text-2xl">Rick and Morty</h1>
+  <div class="flex space-x-2">
+    <div class="toggle-button">
+      <button 
+        (click)="navigateTo('/')" 
+        class="py-2 px-4 rounded-full shadow flex items-center" 
+        [ngClass]="{'bg-white text-black': currentPage === '/', 'bg-[#0a0a0a] text-[#a4a4a4]': currentPage !== '/'}">
+        <i class="fas fa-home mr-2"></i> Home
+      </button>
+      <button 
+        (click)="navigateTo('/favorites')" 
+        class="py-2 px-4 rounded-full shadow flex items-center" 
+        [ngClass]="{'bg-white text-black': currentPage === '/favorites', 'bg-[#0a0a0a] text-[#a4a4a4]': currentPage !== '/favorites'}">
+        <i class="fas fa-star mr-2"></i> Favoritos ({{ favoritesCount$ | async }})
+      </button>
+    </div>
   </div>
 </header>

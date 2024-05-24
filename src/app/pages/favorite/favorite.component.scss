@@ -1,0 +1,39 @@
+.max-w-md {
+    max-width: 58rem;
+}
+
+.max-w-md {
+    width: 67%;
+    padding:10%;
+}
+
+.go-back {
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    padding: 1rem;
+}
+
+.text-lg {
+    color: #a4a4a4 !important;
+}
+
+.rick-and-morty-title {
+    font-family: 'Creepster', cursive;
+    color: #00b5cc;
+    text-shadow: 2px 2px 0px #b2df28, 4px 4px 0px #000000;
+    font-size: 3.5rem;
+  }
+
+  .tamplete {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .template-titulo {
+    width: 100%;
+    padding: 1% 19%;
+}

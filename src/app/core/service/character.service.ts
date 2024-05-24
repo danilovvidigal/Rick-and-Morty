@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environment/environment';
 import { Character, CharacterResponse } from '../models/character.model';
@@ -27,6 +27,12 @@ export class CharacterService {
     this.toastr.success('Adicionado aos favoritos!', 'Sucesso', {
       toastClass: 'toast toast-success',
     });
+  }
+
+  getAllCharacters(): Observable<Character[]> {
+    return this.http.get<CharacterResponse>(`${this.apiUrl}`).pipe(
+      map(response => response.results)
+    );
   }
 
   getFavorites(): Character[] {

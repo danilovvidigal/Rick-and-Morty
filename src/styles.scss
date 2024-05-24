@@ -4,13 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@400&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Creepster', cursive;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Creepster', cursive;
+}
+
 .toast {
   display: flex;
   align-items: center;
@@ -32,10 +32,10 @@ body {
   background-color: #4caf50 !important;
 }
 
-.toast-top-right {
+.toast-top-left {
   position: absolute !important;
   top: 16px !important;
-  right: 12px !important;
+  left: 12px !important;
   z-index: 1050 !important;
 }
 
